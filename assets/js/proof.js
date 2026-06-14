@@ -2,8 +2,8 @@
  * Proof — recent-sale social-proof popup (vanilla JS, no dependencies).
  *
  * Rotates through a privacy-safe list of recent purchases supplied by PHP via
- * the `proofData` global. Respects an initial delay, a per-popup display time,
- * an interval between popups and a frequency cap (max popups per page view).
+ * the `proofData` global. Respects an initial delay, a per-popup display time
+ * and an interval between popups.
  *
  * Accessibility: the popup lives in an aria-live="polite" region so screen
  * readers announce each notification without stealing focus. It never traps
@@ -18,18 +18,15 @@
 	}
 
 	var config = data.config || {};
-	var fields = config.fields || {};
 	var i18n = data.i18n || {};
 
 	var position = config.position || 'bottom-left';
 	var initialDelay = toInt( config.initialDelay, 5000 );
 	var displayTime = toInt( config.displayTime, 6000 );
 	var interval = toInt( config.interval, 12000 );
-	var maxPerSession = toInt( config.maxPerSession, 0 );
 
 	var items = data.notifications.slice();
 	var index = 0;
-	var shown = 0;
 	var hideTimer = null;
 	var cycleTimer = null;
 
@@ -52,21 +49,14 @@
 		if ( dismissed ) {
 			return;
 		}
-		if ( maxPerSession > 0 && shown >= maxPerSession ) {
-			return;
-		}
 
 		render( items[ index % items.length ] );
 		index++;
-		shown++;
 
 		show();
 
 		hideTimer = window.setTimeout( function () {
 			hide();
-			if ( maxPerSession > 0 && shown >= maxPerSession ) {
-				return;
-			}
 			cycleTimer = window.setTimeout( cycle, interval );
 		}, displayTime );
 	}
@@ -77,7 +67,7 @@
 		}
 
 		var lead = document.createElement( 'span' );
-		if ( fields.name !== false && item.name ) {
+		if ( item.name ) {
 			var nameEl = document.createElement( 'span' );
 			nameEl.className = 'proof-popup__name';
 			nameEl.textContent = item.name;
@@ -85,13 +75,10 @@
 		}
 
 		var sentence = '';
-		var hasCity = fields.city !== false && item.city;
-		var hasProduct = fields.product !== false && item.product;
-
-		if ( hasCity ) {
+		if ( item.city ) {
 			sentence += ( lead.textContent ? ' ' : '' ) + fromLabel() + ' ' + item.city;
 		}
-		if ( hasProduct ) {
+		if ( item.product ) {
 			sentence += ' ' + boughtLabel() + ' ' + item.product;
 		}
 
@@ -110,7 +97,7 @@
 		if ( existingTime ) {
 			existingTime.parentNode.removeChild( existingTime );
 		}
-		if ( fields.time !== false && item.time ) {
+		if ( item.time ) {
 			var timeEl = document.createElement( 'span' );
 			timeEl.className = 'proof-popup__time';
 			timeEl.textContent = item.time;

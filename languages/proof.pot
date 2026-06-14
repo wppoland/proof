@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-14T14:36:32+00:00\n"
+"POT-Creation-Date: 2026-06-14T21:56:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: proof\n"
@@ -56,193 +56,109 @@ msgstr ""
 msgid "Show small popups of recent real purchases to build trust and urgency. Only a first name and city are ever shown — never full names, emails or addresses."
 msgstr ""
 
-#: src/Admin/Settings.php:113
+#: src/Admin/Settings.php:112
 msgid "Save changes"
 msgstr ""
 
-#: src/Admin/Settings.php:124
+#: src/Admin/Settings.php:123
 msgid "General"
 msgstr ""
 
-#: src/Admin/Settings.php:129
+#: src/Admin/Settings.php:128
 msgid "Enable Proof"
 msgstr ""
 
-#: src/Admin/Settings.php:130
+#: src/Admin/Settings.php:129
 msgid "Master switch. When off, no popups are loaded or rendered anywhere on the storefront."
 msgstr ""
 
-#: src/Admin/Settings.php:136
-msgid "Show on"
-msgstr ""
-
-#: src/Admin/Settings.php:138
-msgid "Entire storefront"
-msgstr ""
-
-#: src/Admin/Settings.php:139
-msgid "Shop, product archives & product pages"
-msgstr ""
-
-#: src/Admin/Settings.php:140
-msgid "Single product pages only"
-msgstr ""
-
-#: src/Admin/Settings.php:143
-msgid "Limit where popups appear. \"Shop\" covers the shop page, category/tag archives and single products."
-msgstr ""
-
-#: src/Admin/Settings.php:148
+#: src/Admin/Settings.php:135
 msgid "Screen corner"
 msgstr ""
 
-#: src/Admin/Settings.php:150
+#: src/Admin/Settings.php:137
 msgid "Bottom left"
 msgstr ""
 
-#: src/Admin/Settings.php:151
+#: src/Admin/Settings.php:138
 msgid "Bottom right"
 msgstr ""
 
-#: src/Admin/Settings.php:152
+#: src/Admin/Settings.php:139
 msgid "Top left"
 msgstr ""
 
-#: src/Admin/Settings.php:153
+#: src/Admin/Settings.php:140
 msgid "Top right"
 msgstr ""
 
-#: src/Admin/Settings.php:156
+#: src/Admin/Settings.php:143
 msgid "Which corner of the screen the popup slides in from."
 msgstr ""
 
-#: src/Admin/Settings.php:169
+#: src/Admin/Settings.php:156
 msgid "What each popup shows"
 msgstr ""
 
-#: src/Admin/Settings.php:172
-msgid "Customer first name"
+#: src/Admin/Settings.php:157
+msgid "Each popup shows the buyer's first name, billing city, the product name and how long ago the purchase happened — for example \"Alex from Berlin bought Hoodie 2 hours ago\". Surnames, emails and full addresses are never shown."
 msgstr ""
 
-#: src/Admin/Settings.php:172
-msgid "Show the buyer's first name (e.g. \"Alex\"). Surnames are never shown."
-msgstr ""
-
-#: src/Admin/Settings.php:173
-msgid "City"
-msgstr ""
-
-#: src/Admin/Settings.php:173
-msgid "Show the billing city only (e.g. \"Berlin\"). Street address and country are never shown."
-msgstr ""
-
-#: src/Admin/Settings.php:174
-msgid "Product name"
-msgstr ""
-
-#: src/Admin/Settings.php:174
-msgid "Show the name of the purchased product."
-msgstr ""
-
-#: src/Admin/Settings.php:175
-msgid "Time ago"
-msgstr ""
-
-#: src/Admin/Settings.php:175
-msgid "Show how long ago the purchase happened (e.g. \"2 hours ago\")."
-msgstr ""
-
-#: src/Admin/Settings.php:179
+#: src/Admin/Settings.php:162
 msgid "Fallback name"
 msgstr ""
 
-#: src/Admin/Settings.php:181
+#: src/Admin/Settings.php:164
 msgid "Shown in place of a first name when the order has none. Defaults to \"Someone\"."
 msgstr ""
 
-#: src/Admin/Settings.php:194
+#: src/Admin/Settings.php:177
 msgid "Timing"
 msgstr ""
 
-#: src/Admin/Settings.php:197
+#: src/Admin/Settings.php:180
 msgid "Initial delay (seconds)"
 msgstr ""
 
-#: src/Admin/Settings.php:197
+#: src/Admin/Settings.php:180
 msgid "How long to wait after the page loads before the first popup appears."
 msgstr ""
 
-#: src/Admin/Settings.php:198
+#: src/Admin/Settings.php:181
 msgid "Display time (seconds)"
 msgstr ""
 
-#: src/Admin/Settings.php:198
+#: src/Admin/Settings.php:181
 msgid "How long each popup stays on screen."
 msgstr ""
 
-#: src/Admin/Settings.php:199
+#: src/Admin/Settings.php:182
 msgid "Interval between popups (seconds)"
 msgstr ""
 
-#: src/Admin/Settings.php:199
+#: src/Admin/Settings.php:182
 msgid "Gap between one popup disappearing and the next appearing."
 msgstr ""
 
-#: src/Admin/Settings.php:200
-msgid "Max popups per page view"
-msgstr ""
-
-#: src/Admin/Settings.php:200
-msgid "Frequency cap: stop after this many popups on a single page view. Set 0 for unlimited."
-msgstr ""
-
-#: src/Admin/Settings.php:212
-msgid "Source data"
-msgstr ""
-
-#: src/Admin/Settings.php:215
-msgid "Maximum order age (days)"
-msgstr ""
-
-#: src/Admin/Settings.php:215
-msgid "Only purchases newer than this are eligible to be shown."
-msgstr ""
-
-#: src/Admin/Settings.php:216
-msgid "Maximum orders to pull"
-msgstr ""
-
-#: src/Admin/Settings.php:216
-msgid "How many recent orders to draw the rotation from."
-msgstr ""
-
-#: src/Admin/Settings.php:220
-msgid "Use demo data when no real orders exist"
-msgstr ""
-
-#: src/Admin/Settings.php:221
-msgid "Off by default. When on, neutral placeholder popups are shown only if there are no qualifying real orders — useful for previewing on a new store. Turn off for production."
-msgstr ""
-
-#: src/Admin/Settings.php:240
+#: src/Admin/Settings.php:199
 msgid "Enabled"
 msgstr ""
 
-#: src/Service/FrontendService.php:76
+#: src/Service/FrontendService.php:77
 msgid "Recent purchase"
 msgstr ""
 
-#: src/Service/FrontendService.php:77
+#: src/Service/FrontendService.php:78
 msgid "Dismiss notification"
 msgstr ""
 
 #. translators: connects a name to a city, e.g. "Alex from Berlin".
-#: src/Service/FrontendService.php:79
+#: src/Service/FrontendService.php:80
 msgid "from"
 msgstr ""
 
 #. translators: connects a buyer to a product, e.g. "bought Hoodie".
-#: src/Service/FrontendService.php:81
+#: src/Service/FrontendService.php:82
 msgid "bought"
 msgstr ""
 
@@ -254,40 +170,4 @@ msgstr ""
 #: src/Service/OrderFeed.php:171
 #, php-format
 msgid "%s ago"
-msgstr ""
-
-#: src/Service/OrderFeed.php:188
-msgid "Alex"
-msgstr ""
-
-#: src/Service/OrderFeed.php:188
-msgid "Berlin"
-msgstr ""
-
-#: src/Service/OrderFeed.php:188
-msgid "Sample Product"
-msgstr ""
-
-#: src/Service/OrderFeed.php:189
-msgid "Maria"
-msgstr ""
-
-#: src/Service/OrderFeed.php:189
-msgid "Madrid"
-msgstr ""
-
-#: src/Service/OrderFeed.php:189
-msgid "Demo Item"
-msgstr ""
-
-#: src/Service/OrderFeed.php:190
-msgid "Sam"
-msgstr ""
-
-#: src/Service/OrderFeed.php:190
-msgid "Toronto"
-msgstr ""
-
-#: src/Service/OrderFeed.php:190
-msgid "Example Goods"
 msgstr ""

@@ -15,9 +15,9 @@ Show recent-sale social-proof popups built from real WooCommerce orders. Privacy
 
 Proof shows small, tasteful popups in a corner of the screen that surface recent **real** purchases from your store — for example, "Alex from Berlin bought Hoodie 2 hours ago". Genuine recent activity builds trust and a gentle sense of urgency, without fake numbers.
 
-**Privacy first.** Each popup only ever shows a customer's **first name** and **billing city** — never surnames, emails, full addresses, order numbers or any other personal data. You choose which of those fields appear, and you can replace a missing first name with a neutral fallback like "Someone".
+**Privacy first.** Each popup only ever shows a customer's **first name** and **billing city** — never surnames, emails, full addresses, order numbers or any other personal data. You can replace a missing first name with a neutral fallback like "Someone".
 
-**Real orders only.** Popups are built from your recent completed and processing WooCommerce orders. Demo/placeholder data is **off by default**; if there are no qualifying orders, Proof simply shows nothing rather than inventing sales.
+**Real orders only.** Popups are built from your recent completed and processing WooCommerce orders. There is no fake or invented data; if there are no qualifying orders, Proof simply shows nothing.
 
 **Fast and unobtrusive.**
 
@@ -36,13 +36,10 @@ Proof shows small, tasteful popups in a corner of the screen that surface recent
 **Features**
 
 * Recent-sale popups from real WooCommerce orders (completed & processing)
-* Privacy-safe: first name + city only, every field individually toggleable
+* Privacy-safe: first name and city only — never surnames, emails or addresses
+* Neutral fallback name for orders with no first name
 * Choose the screen corner (any of the four)
 * Configurable initial delay, display time and interval between popups
-* Frequency cap (max popups per page view)
-* Limit where popups appear: whole storefront, shop/archives/products, or single products only
-* Maximum order age and maximum number of orders to draw from
-* Optional demo data for previewing on a brand-new store (off by default)
 * Clean, dark-mode-aware settings screen under WooCommerce → Proof
 * Compatible with WooCommerce HPOS (Custom Order Tables) and Cart/Checkout Blocks
 
@@ -51,7 +48,7 @@ Proof shows small, tasteful popups in a corner of the screen that surface recent
 1. Install and activate WooCommerce (8.0 or later).
 2. Install Proof from the WordPress plugin directory, or upload the `proof` folder to `/wp-content/plugins/`.
 3. Activate the plugin through the **Plugins** screen.
-4. Visit **WooCommerce → Proof** to choose the corner, fields and timing. Sensible defaults work out of the box.
+4. Visit **WooCommerce → Proof** to choose the corner and timing. Sensible defaults work out of the box.
 5. Popups appear automatically once you have qualifying recent orders.
 
 == Frequently Asked Questions ==
@@ -63,13 +60,13 @@ Yes. Proof is free and licensed under the GPL.
 Yes. Proof is a WooCommerce extension and requires WooCommerce 8.0 or later. It shows an admin notice and stays inactive if WooCommerce is missing.
 
 = What personal data is shown in a popup? =
-Only a customer's first name and billing city, and only the fields you enable. Surnames, emails, full addresses and order numbers are never exposed to the browser.
+Only a customer's first name and billing city. Surnames, emails, full addresses and order numbers are never exposed to the browser.
 
 = Does it show fake sales? =
-No. By default Proof only shows real orders. There is an optional demo-data mode for previewing on a new store; it is off by default and only ever activates when there are no real qualifying orders.
+No. Proof only ever shows real orders. If there are no qualifying orders, it shows nothing.
 
 = Which orders are used? =
-Recent orders with the status "completed" or "processing", newer than your configured maximum age, up to your configured maximum count.
+Recent orders with the status "completed" or "processing" from roughly the last 30 days, drawn from the 40 most recent qualifying orders.
 
 = Will it slow down my store or cause layout shift? =
 No. The popup is a small vanilla-JS widget loaded `defer` in the footer, the order data is cached in a transient, and the popup is fixed to a screen corner so it never pushes content around.

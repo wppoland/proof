@@ -48,17 +48,9 @@ final class FrontendService implements HasHooks
             return;
         }
 
-        /**
-         * Filter the privacy-safe notifications sent to the browser. PRO
-         * companions may append additional real, privacy-safe items here (each
-         * must match the {name, city, product, time, ts} shape).
-         *
-         * @param list<array{name:string,city:string,product:string,time:string,ts:int}> $notifications
-         * @param array<string, mixed>                                                    $settings
-         */
-        $notifications = apply_filters('proof/notifications', $this->feed->notifications(), $this->settings->all());
+        $notifications = $this->feed->notifications();
 
-        if (! is_array($notifications) || $notifications === []) {
+        if ($notifications === []) {
             // Nothing safe to show — load nothing rather than an empty widget.
             return;
         }
@@ -102,54 +94,23 @@ final class FrontendService implements HasHooks
         $s = $this->settings->all();
 
         return [
-            'position'       => (string) $s['position'],
-            'initialDelay'   => (int) $s['initial_delay'] * 1000,
-            'displayTime'    => (int) $s['display_time'] * 1000,
-            'interval'       => (int) $s['interval'] * 1000,
-            'maxPerSession'  => (int) $s['max_per_session'],
-            'fields'         => [
-                'name'    => (bool) $s['show_name'],
-                'city'    => (bool) $s['show_city'],
-                'product' => (bool) $s['show_product'],
-                'time'    => (bool) $s['show_time'],
-            ],
+            'position'     => (string) $s['position'],
+            'initialDelay' => (int) $s['initial_delay'] * 1000,
+            'displayTime'  => (int) $s['display_time'] * 1000,
+            'interval'     => (int) $s['interval'] * 1000,
         ];
     }
 
     /**
-     * Whether Proof should run on the current request.
+     * Whether Proof should run on the current request. Popups load on the
+     * storefront when enabled; never in wp-admin.
      */
     private function shouldDisplay(): bool
     {
-        $s = $this->settings->all();
-
-        if (empty($s['enabled']) || is_admin()) {
+        if (empty($this->settings->all()['enabled']) || is_admin()) {
             return false;
         }
 
-        $scope = (string) $s['display_scope'];
-        $match  = match ($scope) {
-            'all'     => true,
-            'product' => function_exists('is_product') && is_product(),
-            default   => $this->isShopContext(),
-        };
-
-        /**
-         * Filter whether Proof renders on the current request.
-         *
-         * @param bool                 $match    Whether the current scope matches.
-         * @param string               $scope    The configured display scope.
-         * @param array<string, mixed> $settings Resolved settings.
-         */
-        return (bool) apply_filters('proof/should_display', $match, $scope, $s);
-    }
-
-    private function isShopContext(): bool
-    {
-        $isShop    = function_exists('is_shop') && is_shop();
-        $isArchive = function_exists('is_product_taxonomy') && is_product_taxonomy();
-        $isProduct = function_exists('is_product') && is_product();
-
-        return $isShop || $isArchive || $isProduct;
+        return true;
     }
 }

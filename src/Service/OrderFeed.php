@@ -23,6 +23,12 @@ final class OrderFeed
     private const CACHE_KEY = 'proof_feed_cache';
     private const CACHE_TTL = 5 * MINUTE_IN_SECONDS;
 
+    /** Only orders newer than this are eligible to be shown. */
+    private const MAX_AGE_DAYS = 30;
+
+    /** How many recent orders to draw the rotation from. */
+    private const MAX_ORDERS = 40;
+
     /** @var array<string, mixed> */
     private array $settings;
 
@@ -39,7 +45,7 @@ final class OrderFeed
      *
      * Each item: ['name' => string, 'city' => string, 'product' => string,
      * 'time' => string (human diff), 'ts' => int (unix)]. Returns an empty array
-     * when there is nothing safe to show (and demo data is off).
+     * when there is nothing safe to show.
      *
      * @return list<array{name:string,city:string,product:string,time:string,ts:int}>
      */
@@ -52,10 +58,6 @@ final class OrderFeed
         }
 
         $items = $this->buildFromOrders();
-
-        if ($items === [] && ! empty($this->settings['fake_data'])) {
-            $items = $this->demoItems();
-        }
 
         set_transient(self::CACHE_KEY, $items, self::CACHE_TTL);
 
@@ -73,12 +75,10 @@ final class OrderFeed
             return [];
         }
 
-        $maxAgeDays = (int) ($this->settings['max_age_days'] ?? 30);
-        $maxOrders  = (int) ($this->settings['max_orders'] ?? 40);
-        $after      = gmdate('Y-m-d H:i:s', time() - ($maxAgeDays * DAY_IN_SECONDS));
+        $after = gmdate('Y-m-d H:i:s', time() - (self::MAX_AGE_DAYS * DAY_IN_SECONDS));
 
         $orders = wc_get_orders([
-            'limit'        => $maxOrders,
+            'limit'        => self::MAX_ORDERS,
             'orderby'      => 'date',
             'order'        => 'DESC',
             'status'       => ['wc-completed', 'wc-processing'],
@@ -172,23 +172,6 @@ final class OrderFeed
         }
 
         return $items;
-    }
-
-    /**
-     * Neutral placeholder items, only used when demo mode is explicitly enabled
-     * and there are no real orders.
-     *
-     * @return list<array{name:string,city:string,product:string,time:string,ts:int}>
-     */
-    private function demoItems(): array
-    {
-        $now = time();
-
-        return [
-            ['name' => __('Alex', 'proof'), 'city' => __('Berlin', 'proof'), 'product' => __('Sample Product', 'proof'), 'time' => '', 'ts' => $now - (2 * HOUR_IN_SECONDS)],
-            ['name' => __('Maria', 'proof'), 'city' => __('Madrid', 'proof'), 'product' => __('Demo Item', 'proof'), 'time' => '', 'ts' => $now - (40 * MINUTE_IN_SECONDS)],
-            ['name' => __('Sam', 'proof'), 'city' => __('Toronto', 'proof'), 'product' => __('Example Goods', 'proof'), 'time' => '', 'ts' => $now - (15 * MINUTE_IN_SECONDS)],
-        ];
     }
 
     /**

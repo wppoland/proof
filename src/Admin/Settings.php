@@ -108,7 +108,6 @@ final class Settings implements HasHooks
         $this->sectionGeneral($s);
         $this->sectionFields($s);
         $this->sectionTiming($s);
-        $this->sectionSource($s);
 
         submit_button(__('Save changes', 'proof'));
         echo '</form>';
@@ -129,18 +128,6 @@ final class Settings implements HasHooks
             __('Enable Proof', 'proof'),
             __('Master switch. When off, no popups are loaded or rendered anywhere on the storefront.', 'proof'),
             (bool) $s['enabled'],
-        );
-
-        $this->selectRow(
-            'display_scope',
-            __('Show on', 'proof'),
-            [
-                'all'     => __('Entire storefront', 'proof'),
-                'shop'    => __('Shop, product archives & product pages', 'proof'),
-                'product' => __('Single product pages only', 'proof'),
-            ],
-            (string) $s['display_scope'],
-            __('Limit where popups appear. "Shop" covers the shop page, category/tag archives and single products.', 'proof'),
         );
 
         $this->selectRow(
@@ -167,12 +154,8 @@ final class Settings implements HasHooks
     {
         echo '<div class="proof-card">';
         echo '<h2>' . esc_html__('What each popup shows', 'proof') . '</h2>';
+        echo '<p class="description">' . esc_html__('Each popup shows the buyer\'s first name, billing city, the product name and how long ago the purchase happened — for example "Alex from Berlin bought Hoodie 2 hours ago". Surnames, emails and full addresses are never shown.', 'proof') . '</p>';
         echo '<table class="form-table" role="presentation"><tbody>';
-
-        $this->checkboxRow('show_name', __('Customer first name', 'proof'), __('Show the buyer\'s first name (e.g. "Alex"). Surnames are never shown.', 'proof'), (bool) $s['show_name']);
-        $this->checkboxRow('show_city', __('City', 'proof'), __('Show the billing city only (e.g. "Berlin"). Street address and country are never shown.', 'proof'), (bool) $s['show_city']);
-        $this->checkboxRow('show_product', __('Product name', 'proof'), __('Show the name of the purchased product.', 'proof'), (bool) $s['show_product']);
-        $this->checkboxRow('show_time', __('Time ago', 'proof'), __('Show how long ago the purchase happened (e.g. "2 hours ago").', 'proof'), (bool) $s['show_time']);
 
         $this->textRow(
             'anonymous_name_text',
@@ -197,30 +180,6 @@ final class Settings implements HasHooks
         $this->numberRow('initial_delay', __('Initial delay (seconds)', 'proof'), (int) $s['initial_delay'], 0, 120, __('How long to wait after the page loads before the first popup appears.', 'proof'));
         $this->numberRow('display_time', __('Display time (seconds)', 'proof'), (int) $s['display_time'], 2, 60, __('How long each popup stays on screen.', 'proof'));
         $this->numberRow('interval', __('Interval between popups (seconds)', 'proof'), (int) $s['interval'], 3, 600, __('Gap between one popup disappearing and the next appearing.', 'proof'));
-        $this->numberRow('max_per_session', __('Max popups per page view', 'proof'), (int) $s['max_per_session'], 0, 100, __('Frequency cap: stop after this many popups on a single page view. Set 0 for unlimited.', 'proof'));
-
-        echo '</tbody></table>';
-        echo '</div>';
-    }
-
-    /**
-     * @param array<string, mixed> $s
-     */
-    private function sectionSource(array $s): void
-    {
-        echo '<div class="proof-card">';
-        echo '<h2>' . esc_html__('Source data', 'proof') . '</h2>';
-        echo '<table class="form-table" role="presentation"><tbody>';
-
-        $this->numberRow('max_age_days', __('Maximum order age (days)', 'proof'), (int) $s['max_age_days'], 1, 365, __('Only purchases newer than this are eligible to be shown.', 'proof'));
-        $this->numberRow('max_orders', __('Maximum orders to pull', 'proof'), (int) $s['max_orders'], 1, 200, __('How many recent orders to draw the rotation from.', 'proof'));
-
-        $this->checkboxRow(
-            'fake_data',
-            __('Use demo data when no real orders exist', 'proof'),
-            __('Off by default. When on, neutral placeholder popups are shown only if there are no qualifying real orders — useful for previewing on a new store. Turn off for production.', 'proof'),
-            (bool) $s['fake_data'],
-        );
 
         echo '</tbody></table>';
         echo '</div>';
