@@ -1,48 +1,33 @@
 # Proof - Sales Notifications for WooCommerce
 
-Show small popups in a corner of the screen that surface recent **real** purchases
-from your WooCommerce store — e.g. *"Alex from Berlin bought Hoodie 2 hours ago"* —
-to build trust and a gentle sense of urgency.
+Show small popups in a corner of the screen that surface recent real purchases
+from your WooCommerce store — for example "Alex from Berlin bought Hoodie 2 hours
+ago" — to build trust and a gentle sense of urgency.
 
-Free, self-contained, wp.org-ready. No jQuery, no layout shift, privacy-safe.
+## Features
 
-## What it does
+- Builds a rotation of recent-sale popups from real WooCommerce orders (completed and processing).
+- Privacy-safe: only first name and billing city are ever exposed to the browser — never surnames, emails, addresses or order numbers, and each field is individually toggleable.
+- Real orders only: demo data is off by default, and with no qualifying orders the plugin shows nothing rather than inventing sales.
+- Lightweight vanilla-JS popup loaded in the footer, with a configurable initial delay, display time, interval and per-page-view frequency cap.
+- Cached order feed so the storefront does not query orders on every page load.
+- Accessible and performance-friendly: announced via an aria-live region, respects prefers-reduced-motion, dark-mode aware, and fixed positioning means no layout shift.
 
-- Builds a rotation of recent-sale popups from real WooCommerce orders (completed & processing).
-- **Privacy-safe:** only first name + billing city are ever exposed to the browser —
-  never surnames, emails, addresses or order numbers. Each field is individually toggleable.
-- **Real orders only:** demo/placeholder data is off by default; with no qualifying orders
-  it renders nothing rather than inventing sales.
-- Vanilla-JS widget (loaded `defer` in the footer) rotates popups with a configurable
-  initial delay, display time and interval, and respects a per-page-view frequency cap.
-- Cached order feed (transient) so the storefront never queries orders on every page load.
+## Installation
 
-## Settings (WooCommerce → Proof)
+1. Upload the plugin to `/wp-content/plugins/proof`, or install it via Plugins → Add New.
+2. Activate it. WooCommerce must be installed and active.
+3. Configure display scope, fields, timing and limits under WooCommerce → Proof.
 
-Enable/disable, display scope (whole store / shop+archives+products / single products),
-screen corner, which fields show (name / city / product / time), timing, frequency cap,
-maximum order age & count, and an off-by-default demo-data toggle for new stores.
+## Frequently Asked Questions
 
-## Accessibility & performance
+**Does it require WooCommerce?**
+Yes. WooCommerce must be installed and active.
 
-- Popup lives in an `aria-live="polite"` status region — announced without stealing focus.
-- Never traps focus, never blocks content; keyboard-accessible dismiss with a visible focus ring.
-- Respects `prefers-reduced-motion`; dark-mode aware (front end and admin).
-- Fixed-corner positioning means **no Cumulative Layout Shift**.
+**What customer data is shown?**
+Only the first name and billing city, and only the fields you enable. No
+surnames, emails, addresses or order numbers are ever sent to the browser.
 
-## Architecture
+Built by WPPoland — https://plogins.com
 
-- **Bootstrap** (`proof.php`): WooCommerce guard, HPOS + cart/checkout-blocks compat,
-  boot on `init` priority 0, `do_action('proof/booted', Plugin::instance())` fired from
-  inside `Plugin::boot()` (the hook the PRO companion extends).
-- **DI**: `src/Plugin.php` + `src/Container.php`; services in `config/services.php`,
-  boot order in `config/hooks.php`, defaults in `config/defaults.php`.
-- **Domain**: `src/Service/OrderFeed.php` (privacy-safe feed from orders, cached),
-  `src/Service/FrontendService.php` (scope + enqueue), `src/Settings/SettingsRepository.php`
-  (read/default/sanitise), `src/Admin/Settings.php` (WooCommerce submenu page).
-- **Quality**: PHPCS (WPCS security rules) + PHPStan level 6; CI runs Plugin Check.
-
-## PRO companion
-
-[`wppoland/proof-pro`](https://github.com/wppoland/proof-pro) (private) hooks
-`add_action('proof/booted', …)` to add premium features.
+License: GPL-2.0-or-later

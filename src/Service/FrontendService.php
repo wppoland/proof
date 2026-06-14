@@ -11,7 +11,7 @@ use Proof\Settings\SettingsRepository;
 defined('ABSPATH') || exit;
 
 /**
- * Front-end orchestration: decides whether to load on the current request,
+ * Front-end handling: decides whether to load on the current request,
  * enqueues the (vanilla JS) popup script + CSS, and hands the privacy-safe feed
  * and timing config to the browser.
  *
