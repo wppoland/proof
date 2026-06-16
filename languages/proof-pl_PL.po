@@ -4,17 +4,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Proof - Sales Notifications for WooCommerce 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/proof\n"
+"POT-Creation-Date: 2026-06-16T20:24:00+00:00\n"
+"PO-Revision-Date: 2026-06-15 00:00+0000\n"
 "Last-Translator: WPPoland <kontakt@wppoland.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-14T21:56:52+00:00\n"
-"PO-Revision-Date: 2026-06-15 00:00+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: proof\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
+"|| n%100>14) ? 1 : 2);\n"
 
 #. Plugin Name of the plugin
 #: proof.php
@@ -29,7 +30,9 @@ msgstr "https://plogins.com/proof/"
 #. Description of the plugin
 #: proof.php
 msgid "Show recent-sale social-proof popups to build trust and urgency."
-msgstr "Wyświetlaj wyskakujące powiadomienia o niedawnych zakupach (społeczny dowód słuszności), aby budować zaufanie i poczucie pilności."
+msgstr ""
+"Wyświetlaj wyskakujące powiadomienia o niedawnych zakupach (społeczny dowód "
+"słuszności), aby budować zaufanie i poczucie pilności."
 
 #. Author of the plugin
 #: proof.php
@@ -42,11 +45,14 @@ msgid "https://plogins.com/"
 msgstr "https://plogins.com/"
 
 #: proof.php:48
-msgid "Proof - Sales Notifications for WooCommerce requires WooCommerce to be active."
-msgstr "Proof - Powiadomienia o sprzedaży dla WooCommerce wymaga aktywnego WooCommerce."
+msgid ""
+"Proof - Sales Notifications for WooCommerce requires WooCommerce to be "
+"active."
+msgstr ""
+"Proof - Powiadomienia o sprzedaży dla WooCommerce wymaga aktywnego "
+"WooCommerce."
 
-#: src/Admin/Settings.php:44
-#: src/Admin/Settings.php:102
+#: src/Admin/Settings.php:44 src/Admin/Settings.php:102
 msgid "Proof — Sales Notifications"
 msgstr "Proof — Powiadomienia o sprzedaży"
 
@@ -55,8 +61,13 @@ msgid "Proof"
 msgstr "Proof"
 
 #: src/Admin/Settings.php:103
-msgid "Show small popups of recent real purchases to build trust and urgency. Only a first name and city are ever shown — never full names, emails or addresses."
-msgstr "Wyświetlaj niewielkie wyskakujące powiadomienia o niedawnych prawdziwych zakupach, aby budować zaufanie i poczucie pilności. Pokazywane są wyłącznie imię i miasto — nigdy pełne nazwiska, adresy e-mail ani adresy zamieszkania."
+msgid ""
+"Show small popups of recent real purchases to build trust and urgency. Only "
+"a first name and city are ever shown — never full names, emails or addresses."
+msgstr ""
+"Wyświetlaj niewielkie wyskakujące powiadomienia o niedawnych prawdziwych "
+"zakupach, aby budować zaufanie i poczucie pilności. Pokazywane są wyłącznie "
+"imię i miasto — nigdy pełne nazwiska, adresy e-mail ani adresy zamieszkania."
 
 #: src/Admin/Settings.php:112
 msgid "Save changes"
@@ -71,8 +82,12 @@ msgid "Enable Proof"
 msgstr "Włącz Proof"
 
 #: src/Admin/Settings.php:129
-msgid "Master switch. When off, no popups are loaded or rendered anywhere on the storefront."
-msgstr "Główny przełącznik. Po wyłączeniu żadne powiadomienia nie są wczytywane ani wyświetlane w żadnym miejscu sklepu."
+msgid ""
+"Master switch. When off, no popups are loaded or rendered anywhere on the "
+"storefront."
+msgstr ""
+"Główny przełącznik. Po wyłączeniu żadne powiadomienia nie są wczytywane ani "
+"wyświetlane w żadnym miejscu sklepu."
 
 #: src/Admin/Settings.php:135
 msgid "Screen corner"
@@ -103,64 +118,92 @@ msgid "What each popup shows"
 msgstr "Co wyświetla każde powiadomienie"
 
 #: src/Admin/Settings.php:157
-msgid "Each popup shows the buyer's first name, billing city, the product name and how long ago the purchase happened — for example \"Alex from Berlin bought Hoodie 2 hours ago\". Surnames, emails and full addresses are never shown."
-msgstr "Każde powiadomienie wyświetla imię kupującego, miasto z danych rozliczeniowych, nazwę produktu oraz jak dawno temu nastąpił zakup — na przykład „Alex z Berlina kupił(a) Bluzę 2 godziny temu”. Nazwiska, adresy e-mail i pełne adresy nigdy nie są wyświetlane."
+msgid ""
+"Each popup shows the buyer's first name, billing city, the product name and "
+"how long ago the purchase happened. Surnames, emails and full addresses are "
+"never shown."
+msgstr ""
 
-#: src/Admin/Settings.php:162
+#: src/Admin/Settings.php:165
 msgid "Fallback name"
 msgstr "Nazwa zastępcza"
 
-#: src/Admin/Settings.php:164
-msgid "Shown in place of a first name when the order has none. Defaults to \"Someone\"."
-msgstr "Wyświetlana zamiast imienia, gdy zamówienie go nie zawiera. Domyślnie „Ktoś”."
+#. translators: %s is the default fallback word shown when an order has no first name.
+#: src/Admin/Settings.php:168
+#, php-format
+msgid ""
+"Shown in place of a first name when the order has none. Leave blank to use "
+"the default, %s."
+msgstr ""
 
-#: src/Admin/Settings.php:177
+#: src/Admin/Settings.php:181
 msgid "Timing"
 msgstr "Czas wyświetlania"
 
-#: src/Admin/Settings.php:180
+#: src/Admin/Settings.php:184
 msgid "Initial delay (seconds)"
 msgstr "Początkowe opóźnienie (sekundy)"
 
-#: src/Admin/Settings.php:180
-msgid "How long to wait after the page loads before the first popup appears."
-msgstr "Jak długo czekać po wczytaniu strony, zanim pojawi się pierwsze powiadomienie."
+#: src/Admin/Settings.php:184
+msgid ""
+"How long to wait after the page loads before the first popup appears. "
+"Default 5 seconds."
+msgstr ""
 
-#: src/Admin/Settings.php:181
+#: src/Admin/Settings.php:185
 msgid "Display time (seconds)"
 msgstr "Czas wyświetlania (sekundy)"
 
-#: src/Admin/Settings.php:181
-msgid "How long each popup stays on screen."
-msgstr "Jak długo każde powiadomienie pozostaje na ekranie."
+#: src/Admin/Settings.php:185
+msgid ""
+"How long each popup stays on screen before sliding away. Default 6 seconds."
+msgstr ""
 
-#: src/Admin/Settings.php:182
+#: src/Admin/Settings.php:186
 msgid "Interval between popups (seconds)"
 msgstr "Odstęp między powiadomieniami (sekundy)"
 
-#: src/Admin/Settings.php:182
-msgid "Gap between one popup disappearing and the next appearing."
-msgstr "Przerwa między zniknięciem jednego powiadomienia a pojawieniem się kolejnego."
+#: src/Admin/Settings.php:186
+msgid ""
+"Gap between one popup disappearing and the next appearing. Lower values show "
+"more popups; higher values feel calmer. Default 12 seconds."
+msgstr ""
 
 #: src/Admin/Settings.php:199
+msgid "Example"
+msgstr ""
+
+#: src/Admin/Settings.php:206
+msgid "Alex from Berlin"
+msgstr ""
+
+#: src/Admin/Settings.php:206
+msgid "bought Merino Hoodie"
+msgstr ""
+
+#: src/Admin/Settings.php:207
+msgid "2 hours ago"
+msgstr ""
+
+#: src/Admin/Settings.php:224
 msgid "Enabled"
 msgstr "Włączone"
 
-#: src/Service/FrontendService.php:77
+#: src/Service/FrontendService.php:87
 msgid "Recent purchase"
 msgstr "Niedawny zakup"
 
-#: src/Service/FrontendService.php:78
+#: src/Service/FrontendService.php:88
 msgid "Dismiss notification"
 msgstr "Zamknij powiadomienie"
 
 #. translators: connects a name to a city, e.g. "Alex from Berlin".
-#: src/Service/FrontendService.php:80
+#: src/Service/FrontendService.php:90
 msgid "from"
 msgstr "z"
 
 #. translators: connects a buyer to a product, e.g. "bought Hoodie".
-#: src/Service/FrontendService.php:82
+#: src/Service/FrontendService.php:92
 msgid "bought"
 msgstr "kupił(a)"
 
@@ -173,3 +216,35 @@ msgstr "Ktoś"
 #, php-format
 msgid "%s ago"
 msgstr "%s temu"
+
+#~ msgid ""
+#~ "Each popup shows the buyer's first name, billing city, the product name "
+#~ "and how long ago the purchase happened — for example \"Alex from Berlin "
+#~ "bought Hoodie 2 hours ago\". Surnames, emails and full addresses are "
+#~ "never shown."
+#~ msgstr ""
+#~ "Każde powiadomienie wyświetla imię kupującego, miasto z danych "
+#~ "rozliczeniowych, nazwę produktu oraz jak dawno temu nastąpił zakup — na "
+#~ "przykład „Alex z Berlina kupił(a) Bluzę 2 godziny temu”. Nazwiska, adresy "
+#~ "e-mail i pełne adresy nigdy nie są wyświetlane."
+
+#~ msgid ""
+#~ "Shown in place of a first name when the order has none. Defaults to "
+#~ "\"Someone\"."
+#~ msgstr ""
+#~ "Wyświetlana zamiast imienia, gdy zamówienie go nie zawiera. Domyślnie "
+#~ "„Ktoś”."
+
+#~ msgid ""
+#~ "How long to wait after the page loads before the first popup appears."
+#~ msgstr ""
+#~ "Jak długo czekać po wczytaniu strony, zanim pojawi się pierwsze "
+#~ "powiadomienie."
+
+#~ msgid "How long each popup stays on screen."
+#~ msgstr "Jak długo każde powiadomienie pozostaje na ekranie."
+
+#~ msgid "Gap between one popup disappearing and the next appearing."
+#~ msgstr ""
+#~ "Przerwa między zniknięciem jednego powiadomienia a pojawieniem się "
+#~ "kolejnego."

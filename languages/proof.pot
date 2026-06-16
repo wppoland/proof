@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-14T21:56:52+00:00\n"
+"POT-Creation-Date: 2026-06-16T20:24:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: proof\n"
@@ -101,64 +101,82 @@ msgid "What each popup shows"
 msgstr ""
 
 #: src/Admin/Settings.php:157
-msgid "Each popup shows the buyer's first name, billing city, the product name and how long ago the purchase happened — for example \"Alex from Berlin bought Hoodie 2 hours ago\". Surnames, emails and full addresses are never shown."
+msgid "Each popup shows the buyer's first name, billing city, the product name and how long ago the purchase happened. Surnames, emails and full addresses are never shown."
 msgstr ""
 
-#: src/Admin/Settings.php:162
+#: src/Admin/Settings.php:165
 msgid "Fallback name"
 msgstr ""
 
-#: src/Admin/Settings.php:164
-msgid "Shown in place of a first name when the order has none. Defaults to \"Someone\"."
+#. translators: %s is the default fallback word shown when an order has no first name.
+#: src/Admin/Settings.php:168
+#, php-format
+msgid "Shown in place of a first name when the order has none. Leave blank to use the default, %s."
 msgstr ""
 
-#: src/Admin/Settings.php:177
+#: src/Admin/Settings.php:181
 msgid "Timing"
 msgstr ""
 
-#: src/Admin/Settings.php:180
+#: src/Admin/Settings.php:184
 msgid "Initial delay (seconds)"
 msgstr ""
 
-#: src/Admin/Settings.php:180
-msgid "How long to wait after the page loads before the first popup appears."
+#: src/Admin/Settings.php:184
+msgid "How long to wait after the page loads before the first popup appears. Default 5 seconds."
 msgstr ""
 
-#: src/Admin/Settings.php:181
+#: src/Admin/Settings.php:185
 msgid "Display time (seconds)"
 msgstr ""
 
-#: src/Admin/Settings.php:181
-msgid "How long each popup stays on screen."
+#: src/Admin/Settings.php:185
+msgid "How long each popup stays on screen before sliding away. Default 6 seconds."
 msgstr ""
 
-#: src/Admin/Settings.php:182
+#: src/Admin/Settings.php:186
 msgid "Interval between popups (seconds)"
 msgstr ""
 
-#: src/Admin/Settings.php:182
-msgid "Gap between one popup disappearing and the next appearing."
+#: src/Admin/Settings.php:186
+msgid "Gap between one popup disappearing and the next appearing. Lower values show more popups; higher values feel calmer. Default 12 seconds."
 msgstr ""
 
 #: src/Admin/Settings.php:199
+msgid "Example"
+msgstr ""
+
+#: src/Admin/Settings.php:206
+msgid "Alex from Berlin"
+msgstr ""
+
+#: src/Admin/Settings.php:206
+msgid "bought Merino Hoodie"
+msgstr ""
+
+#: src/Admin/Settings.php:207
+msgid "2 hours ago"
+msgstr ""
+
+#: src/Admin/Settings.php:224
 msgid "Enabled"
 msgstr ""
 
-#: src/Service/FrontendService.php:77
+#: src/Service/FrontendService.php:87
 msgid "Recent purchase"
 msgstr ""
 
-#: src/Service/FrontendService.php:78
+#: src/Service/FrontendService.php:88
 msgid "Dismiss notification"
 msgstr ""
 
 #. translators: connects a name to a city, e.g. "Alex from Berlin".
-#: src/Service/FrontendService.php:80
+#: src/Service/FrontendService.php:90
 msgid "from"
 msgstr ""
 
 #. translators: connects a buyer to a product, e.g. "bought Hoodie".
-#: src/Service/FrontendService.php:82
+#: src/Service/FrontendService.php:92
 msgid "bought"
 msgstr ""
 
