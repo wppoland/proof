@@ -9,6 +9,10 @@
 	--proof-card-fg: #1d2327;
 	--proof-card-muted: #646970;
 	--proof-card-radius: 10px;
+	/* Family accent: the same verified-receipt ink as the storefront popup, but
+	   shifted deeper so it clears WCAG AA on every wp-admin surface.
+	   #0a6647 → 6.99:1 on #fff, 6.14:1 on the #f0f0f1 admin canvas (AA text). */
+	--proof-accent: #0a6647;
 	max-width: 820px;
 }
 
@@ -19,10 +23,14 @@
 }
 
 .proof-settings .proof-card {
+	position: relative;
 	margin: 0 0 20px;
 	padding: 8px 22px 18px;
 	background: var(--proof-card-bg);
 	border: 1px solid var(--proof-card-border);
+	/* Slim accent rail down the leading edge — the one restrained brand touch,
+	   tying each section back to the storefront slip without shouting. */
+	border-left: 3px solid var(--proof-accent);
 	border-radius: var(--proof-card-radius);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
@@ -30,6 +38,7 @@
 .proof-settings .proof-card h2 {
 	margin: 14px 0 4px;
 	font-size: 15px;
+	color: var(--proof-accent);
 }
 
 .proof-settings .form-table th {
@@ -48,6 +57,66 @@
 	color: var(--proof-card-muted);
 }
 
+/* Static example slip: a calmer echo of the live storefront receipt so admins
+   recognise exactly what ships. Not interactive — purely illustrative. */
+.proof-settings .proof-preview {
+	margin: 4px 0 0;
+}
+
+.proof-settings .proof-preview__label {
+	margin: 0 0 6px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--proof-card-muted);
+}
+
+.proof-settings .proof-preview__slip {
+	display: inline-flex;
+	align-items: center;
+	gap: 11px;
+	max-width: 320px;
+	padding: 11px 14px;
+	background: var(--proof-card-bg);
+	border: 1px solid var(--proof-card-border);
+	border-radius: 6px;
+	box-shadow: 0 6px 16px rgba(15, 30, 24, 0.1);
+}
+
+.proof-settings .proof-preview__seal {
+	flex: 0 0 auto;
+	width: 30px;
+	height: 30px;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	color: #ffffff;
+	background: var(--proof-accent);
+	box-shadow: 0 0 0 2px var(--proof-card-bg), 0 0 0 3px rgba(10, 102, 71, 0.35);
+}
+
+.proof-settings .proof-preview__body {
+	display: block;
+	line-height: 1.35;
+}
+
+.proof-settings .proof-preview__text {
+	display: block;
+	font-size: 13px;
+	color: var(--proof-card-fg);
+}
+
+.proof-settings .proof-preview__time {
+	display: block;
+	margin-top: 2px;
+	font-family: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+	font-size: 10px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--proof-card-muted);
+}
+
 .proof-settings input[type="checkbox"]:focus-visible,
 .proof-settings input[type="text"]:focus-visible,
 .proof-settings input[type="number"]:focus-visible,
@@ -62,6 +131,13 @@
 		--proof-card-border: #3c434a;
 		--proof-card-fg: #e0e0e0;
 		--proof-card-muted: #a7aaad;
+		/* Lighter mint for dark surfaces (matches the storefront's dark accent):
+		   #2ecf94 → 8.04:1 on the #1e2127 card (AA text, well clear). */
+		--proof-accent: #2ecf94;
+	}
+
+	.proof-settings .proof-preview__seal {
+		color: #06241a;
 	}
 
 	.proof-settings .proof-card {

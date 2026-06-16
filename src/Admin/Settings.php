@@ -154,14 +154,18 @@ final class Settings implements HasHooks
     {
         echo '<div class="proof-card">';
         echo '<h2>' . esc_html__('What each popup shows', 'proof') . '</h2>';
-        echo '<p class="description">' . esc_html__('Each popup shows the buyer\'s first name, billing city, the product name and how long ago the purchase happened — for example "Alex from Berlin bought Hoodie 2 hours ago". Surnames, emails and full addresses are never shown.', 'proof') . '</p>';
+        echo '<p class="description">' . esc_html__('Each popup shows the buyer\'s first name, billing city, the product name and how long ago the purchase happened. Surnames, emails and full addresses are never shown.', 'proof') . '</p>';
+
+        $this->previewExample();
+
         echo '<table class="form-table" role="presentation"><tbody>';
 
         $this->textRow(
             'anonymous_name_text',
             __('Fallback name', 'proof'),
             (string) $s['anonymous_name_text'],
-            __('Shown in place of a first name when the order has none. Defaults to "Someone".', 'proof'),
+            /* translators: %s is the default fallback word shown when an order has no first name. */
+            sprintf(__('Shown in place of a first name when the order has none. Leave blank to use the default, %s.', 'proof'), '“Someone”'),
         );
 
         echo '</tbody></table>';
@@ -177,12 +181,33 @@ final class Settings implements HasHooks
         echo '<h2>' . esc_html__('Timing', 'proof') . '</h2>';
         echo '<table class="form-table" role="presentation"><tbody>';
 
-        $this->numberRow('initial_delay', __('Initial delay (seconds)', 'proof'), (int) $s['initial_delay'], 0, 120, __('How long to wait after the page loads before the first popup appears.', 'proof'));
-        $this->numberRow('display_time', __('Display time (seconds)', 'proof'), (int) $s['display_time'], 2, 60, __('How long each popup stays on screen.', 'proof'));
-        $this->numberRow('interval', __('Interval between popups (seconds)', 'proof'), (int) $s['interval'], 3, 600, __('Gap between one popup disappearing and the next appearing.', 'proof'));
+        $this->numberRow('initial_delay', __('Initial delay (seconds)', 'proof'), (int) $s['initial_delay'], 0, 120, __('How long to wait after the page loads before the first popup appears. Default 5 seconds.', 'proof'));
+        $this->numberRow('display_time', __('Display time (seconds)', 'proof'), (int) $s['display_time'], 2, 60, __('How long each popup stays on screen before sliding away. Default 6 seconds.', 'proof'));
+        $this->numberRow('interval', __('Interval between popups (seconds)', 'proof'), (int) $s['interval'], 3, 600, __('Gap between one popup disappearing and the next appearing. Lower values show more popups; higher values feel calmer. Default 12 seconds.', 'proof'));
 
         echo '</tbody></table>';
         echo '</div>';
+    }
+
+    /**
+     * A small, static facsimile of a live popup so admins see the exact shape
+     * and wording before saving — show, don't just describe.
+     */
+    private function previewExample(): void
+    {
+        echo '<figure class="proof-preview">';
+        echo '<figcaption class="proof-preview__label">' . esc_html__('Example', 'proof') . '</figcaption>';
+        echo '<div class="proof-preview__slip" aria-hidden="true">';
+        echo '<span class="proof-preview__seal">';
+        // Inline check mark; decorative, hidden from assistive tech via parent aria-hidden.
+        echo '<svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        echo '</span>';
+        echo '<span class="proof-preview__body">';
+        echo '<span class="proof-preview__text"><strong>' . esc_html__('Alex from Berlin', 'proof') . '</strong> ' . esc_html__('bought Merino Hoodie', 'proof') . '</span>';
+        echo '<span class="proof-preview__time">' . esc_html__('2 hours ago', 'proof') . '</span>';
+        echo '</span>';
+        echo '</div>';
+        echo '</figure>';
     }
 
     private function fieldName(string $key): string
