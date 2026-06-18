@@ -1,5 +1,5 @@
 === Proof - Sales Notifications for WooCommerce ===
-Contributors: wppoland
+Contributors: motylanogha
 Tags: woocommerce, social proof, sales notification, popup, fomo
 Requires at least: 6.5
 Tested up to: 7.0
