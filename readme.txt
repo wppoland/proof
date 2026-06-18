@@ -44,6 +44,15 @@ Source and issue tracker: the code lives at https://github.com/wppoland/proof. B
 
 == Frequently Asked Questions ==
 
+= Documentation and links =
+
+* **Documentation** - https://plogins.com/proof/docs/
+* **Plugin page** - https://plogins.com/proof/
+* **Source code** - https://github.com/wppoland/proof
+* **Bug reports and feature requests** - https://github.com/wppoland/proof/issues
+* **Discussions and questions** - https://github.com/wppoland/proof/discussions
+
+
 = Does it show fake sales? =
 
 No. Every popup comes from a real WooCommerce order. With no qualifying orders, nothing is shown.
