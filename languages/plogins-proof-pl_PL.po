@@ -13,38 +13,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: proof\n"
+"X-Domain: plogins-proof\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
 
 #. Plugin Name of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "Proof - Sales Notifications for WooCommerce"
 msgstr "Proof - Powiadomienia o sprzedaży dla WooCommerce"
 
 #. Plugin URI of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "https://plogins.com/proof/"
 msgstr "https://plogins.com/proof/"
 
 #. Description of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "Show recent-sale social-proof popups to build trust and urgency."
 msgstr ""
 "Wyświetlaj wyskakujące powiadomienia o niedawnych zakupach (społeczny dowód "
 "słuszności), aby budować zaufanie i poczucie pilności."
 
 #. Author of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "WPPoland"
 msgstr "WPPoland"
 
 #. Author URI of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "https://plogins.com/"
 msgstr "https://plogins.com/"
 
-#: proof.php:48
+#: plogins-proof.php:48
 msgid ""
 "Proof - Sales Notifications for WooCommerce requires WooCommerce to be "
 "active."

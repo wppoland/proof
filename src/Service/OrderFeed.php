@@ -121,7 +121,7 @@ final class OrderFeed
         $firstName = trim((string) $order->get_billing_first_name());
         $name      = $firstName !== ''
             ? $firstName
-            : (string) ($this->settings['anonymous_name_text'] ?? __('Someone', 'proof'));
+            : (string) ($this->settings['anonymous_name_text'] ?? __('Someone', 'plogins-proof'));
 
         $city = trim((string) $order->get_billing_city());
 
@@ -168,7 +168,7 @@ final class OrderFeed
         foreach ($items as $i => $item) {
             $ts = (int) ($item['ts'] ?? $now);
             /* translators: %s: human-readable time difference, e.g. "2 hours". */
-            $items[$i]['time'] = sprintf(__('%s ago', 'proof'), human_time_diff($ts, $now));
+            $items[$i]['time'] = sprintf(__('%s ago', 'plogins-proof'), human_time_diff($ts, $now));
         }
 
         return $items;

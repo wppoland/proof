@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:       Proof - Sales Notifications for WooCommerce
- * Plugin URI:        https://plogins.com/proof/
+ * Plugin Name:       Plogins Proof for WooCommerce
+ * Plugin URI:        https://plogins.com/plogins-proof/
  * Description:        Show recent-sale social-proof popups to build trust and urgency.
- * Version:           0.1.0
+ * Version:           0.1.1
  * Requires at least: 6.5
  * Tested up to:      7.0
  * Requires PHP:      8.1
@@ -12,7 +12,7 @@
  * Author URI:        https://wppoland.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       proof
+ * Text Domain:       plogins-proof
  * Domain Path:       /languages
  * WC requires at least: 8.0
  *
@@ -25,7 +25,7 @@ namespace Proof;
 
 defined('ABSPATH') || exit;
 
-const VERSION     = '0.1.0';
+const VERSION     = '0.1.1';
 const PLUGIN_FILE = __FILE__;
 
 define('PROOF_DIR', plugin_dir_path(__FILE__));
@@ -45,7 +45,7 @@ add_action('plugins_loaded', static function (): void {
     if (! class_exists('WooCommerce')) {
         add_action('admin_notices', static function (): void {
             echo '<div class="notice notice-error"><p>';
-            echo esc_html__('Proof - Sales Notifications for WooCommerce requires WooCommerce to be active.', 'proof');
+            echo esc_html__('Proof - Sales Notifications for WooCommerce requires WooCommerce to be active.', 'plogins-proof');
             echo '</p></div>';
         });
         return;

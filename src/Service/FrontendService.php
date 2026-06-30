@@ -84,12 +84,12 @@ final class FrontendService implements HasHooks
             'notifications' => $notifications,
             'config'        => $this->frontConfig(),
             'i18n'          => [
-                'regionLabel' => __('Recent purchase', 'proof'),
-                'closeLabel'  => __('Dismiss notification', 'proof'),
+                'regionLabel' => __('Recent purchase', 'plogins-proof'),
+                'closeLabel'  => __('Dismiss notification', 'plogins-proof'),
                 /* translators: connects a name to a city, e.g. "Alex from Berlin". */
-                'from'        => __('from', 'proof'),
+                'from'        => __('from', 'plogins-proof'),
                 /* translators: connects a buyer to a product, e.g. "bought Hoodie". */
-                'bought'      => __('bought', 'proof'),
+                'bought'      => __('bought', 'plogins-proof'),
             ],
         ]);
     }

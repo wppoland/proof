@@ -41,8 +41,8 @@ final class Settings implements HasHooks
     {
         add_submenu_page(
             'woocommerce',
-            __('Proof: Sales Notifications', 'proof'),
-            __('Proof', 'proof'),
+            __('Proof: Sales Notifications', 'plogins-proof'),
+            __('Proof', 'plogins-proof'),
             'manage_woocommerce',
             self::PAGE,
             [$this, 'renderPage'],
@@ -99,8 +99,8 @@ final class Settings implements HasHooks
         $s = $this->settings->all();
 
         echo '<div class="wrap proof-settings">';
-        echo '<h1>' . esc_html__('Proof: Sales Notifications', 'proof') . '</h1>';
-        echo '<p class="proof-intro">' . esc_html__('Show small popups of recent real purchases to build trust and urgency. Only a first name and city are ever shown, never full names, emails or addresses.', 'proof') . '</p>';
+        echo '<h1>' . esc_html__('Proof: Sales Notifications', 'plogins-proof') . '</h1>';
+        echo '<p class="proof-intro">' . esc_html__('Show small popups of recent real purchases to build trust and urgency. Only a first name and city are ever shown, never full names, emails or addresses.', 'plogins-proof') . '</p>';
 
         echo '<form action="' . esc_url(admin_url('options.php')) . '" method="post" class="proof-form">';
         settings_fields(self::GROUP);
@@ -109,7 +109,7 @@ final class Settings implements HasHooks
         $this->sectionFields($s);
         $this->sectionTiming($s);
 
-        submit_button(__('Save changes', 'proof'));
+        submit_button(__('Save changes', 'plogins-proof'));
         echo '</form>';
         echo '</div>';
     }
@@ -120,27 +120,27 @@ final class Settings implements HasHooks
     private function sectionGeneral(array $s): void
     {
         echo '<div class="proof-card">';
-        echo '<h2>' . esc_html__('General', 'proof') . '</h2>';
+        echo '<h2>' . esc_html__('General', 'plogins-proof') . '</h2>';
         echo '<table class="form-table" role="presentation"><tbody>';
 
         $this->checkboxRow(
             'enabled',
-            __('Enable Proof', 'proof'),
-            __('Master switch. When off, no popups are loaded or rendered anywhere on the storefront.', 'proof'),
+            __('Enable Proof', 'plogins-proof'),
+            __('Master switch. When off, no popups are loaded or rendered anywhere on the storefront.', 'plogins-proof'),
             (bool) $s['enabled'],
         );
 
         $this->selectRow(
             'position',
-            __('Screen corner', 'proof'),
+            __('Screen corner', 'plogins-proof'),
             [
-                'bottom-left'  => __('Bottom left', 'proof'),
-                'bottom-right' => __('Bottom right', 'proof'),
-                'top-left'     => __('Top left', 'proof'),
-                'top-right'    => __('Top right', 'proof'),
+                'bottom-left'  => __('Bottom left', 'plogins-proof'),
+                'bottom-right' => __('Bottom right', 'plogins-proof'),
+                'top-left'     => __('Top left', 'plogins-proof'),
+                'top-right'    => __('Top right', 'plogins-proof'),
             ],
             (string) $s['position'],
-            __('Which corner of the screen the popup slides in from.', 'proof'),
+            __('Which corner of the screen the popup slides in from.', 'plogins-proof'),
         );
 
         echo '</tbody></table>';
@@ -153,8 +153,8 @@ final class Settings implements HasHooks
     private function sectionFields(array $s): void
     {
         echo '<div class="proof-card">';
-        echo '<h2>' . esc_html__('What each popup shows', 'proof') . '</h2>';
-        echo '<p class="description">' . esc_html__('Each popup shows the buyer\'s first name, billing city, the product name and how long ago the purchase happened. Surnames, emails and full addresses are never shown.', 'proof') . '</p>';
+        echo '<h2>' . esc_html__('What each popup shows', 'plogins-proof') . '</h2>';
+        echo '<p class="description">' . esc_html__('Each popup shows the buyer\'s first name, billing city, the product name and how long ago the purchase happened. Surnames, emails and full addresses are never shown.', 'plogins-proof') . '</p>';
 
         $this->previewExample();
 
@@ -162,10 +162,10 @@ final class Settings implements HasHooks
 
         $this->textRow(
             'anonymous_name_text',
-            __('Fallback name', 'proof'),
+            __('Fallback name', 'plogins-proof'),
             (string) $s['anonymous_name_text'],
             /* translators: %s is the default fallback word shown when an order has no first name. */
-            sprintf(__('Shown in place of a first name when the order has none. Leave blank to use the default, %s.', 'proof'), '“Someone”'),
+            sprintf(__('Shown in place of a first name when the order has none. Leave blank to use the default, %s.', 'plogins-proof'), '“Someone”'),
         );
 
         echo '</tbody></table>';
@@ -178,12 +178,12 @@ final class Settings implements HasHooks
     private function sectionTiming(array $s): void
     {
         echo '<div class="proof-card">';
-        echo '<h2>' . esc_html__('Timing', 'proof') . '</h2>';
+        echo '<h2>' . esc_html__('Timing', 'plogins-proof') . '</h2>';
         echo '<table class="form-table" role="presentation"><tbody>';
 
-        $this->numberRow('initial_delay', __('Initial delay (seconds)', 'proof'), (int) $s['initial_delay'], 0, 120, __('How long to wait after the page loads before the first popup appears. Default 5 seconds.', 'proof'));
-        $this->numberRow('display_time', __('Display time (seconds)', 'proof'), (int) $s['display_time'], 2, 60, __('How long each popup stays on screen before sliding away. Default 6 seconds.', 'proof'));
-        $this->numberRow('interval', __('Interval between popups (seconds)', 'proof'), (int) $s['interval'], 3, 600, __('Gap between one popup disappearing and the next appearing. Lower values show more popups; higher values feel calmer. Default 12 seconds.', 'proof'));
+        $this->numberRow('initial_delay', __('Initial delay (seconds)', 'plogins-proof'), (int) $s['initial_delay'], 0, 120, __('How long to wait after the page loads before the first popup appears. Default 5 seconds.', 'plogins-proof'));
+        $this->numberRow('display_time', __('Display time (seconds)', 'plogins-proof'), (int) $s['display_time'], 2, 60, __('How long each popup stays on screen before sliding away. Default 6 seconds.', 'plogins-proof'));
+        $this->numberRow('interval', __('Interval between popups (seconds)', 'plogins-proof'), (int) $s['interval'], 3, 600, __('Gap between one popup disappearing and the next appearing. Lower values show more popups; higher values feel calmer. Default 12 seconds.', 'plogins-proof'));
 
         echo '</tbody></table>';
         echo '</div>';
@@ -196,15 +196,15 @@ final class Settings implements HasHooks
     private function previewExample(): void
     {
         echo '<figure class="proof-preview">';
-        echo '<figcaption class="proof-preview__label">' . esc_html__('Example', 'proof') . '</figcaption>';
+        echo '<figcaption class="proof-preview__label">' . esc_html__('Example', 'plogins-proof') . '</figcaption>';
         echo '<div class="proof-preview__slip" aria-hidden="true">';
         echo '<span class="proof-preview__seal">';
         // Inline check mark; decorative, hidden from assistive tech via parent aria-hidden.
         echo '<svg viewBox="0 0 20 20" width="13" height="13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
         echo '</span>';
         echo '<span class="proof-preview__body">';
-        echo '<span class="proof-preview__text"><strong>' . esc_html__('Alex from Berlin', 'proof') . '</strong> ' . esc_html__('bought Merino Hoodie', 'proof') . '</span>';
-        echo '<span class="proof-preview__time">' . esc_html__('2 hours ago', 'proof') . '</span>';
+        echo '<span class="proof-preview__text"><strong>' . esc_html__('Alex from Berlin', 'plogins-proof') . '</strong> ' . esc_html__('bought Merino Hoodie', 'plogins-proof') . '</span>';
+        echo '<span class="proof-preview__time">' . esc_html__('2 hours ago', 'plogins-proof') . '</span>';
         echo '</span>';
         echo '</div>';
         echo '</figure>';
@@ -221,7 +221,7 @@ final class Settings implements HasHooks
         echo '<tr><th scope="row">' . esc_html($label) . '</th><td>';
         echo '<label class="proof-toggle" for="' . esc_attr($id) . '">';
         echo '<input type="checkbox" id="' . esc_attr($id) . '" name="' . esc_attr($this->fieldName($key)) . '" value="1" ' . checked($checked, true, false) . ' aria-describedby="' . esc_attr($id . '_help') . '" />';
-        echo '<span>' . esc_html__('Enabled', 'proof') . '</span>';
+        echo '<span>' . esc_html__('Enabled', 'plogins-proof') . '</span>';
         echo '</label>';
         echo '<p class="description" id="' . esc_attr($id . '_help') . '">' . esc_html($help) . '</p>';
         echo '</td></tr>';

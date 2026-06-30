@@ -12,34 +12,34 @@ msgstr ""
 "POT-Creation-Date: 2026-06-16T20:24:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: proof\n"
+"X-Domain: plogins-proof\n"
 
 #. Plugin Name of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "Proof - Sales Notifications for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "https://plogins.com/proof/"
 msgstr ""
 
 #. Description of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "Show recent-sale social-proof popups to build trust and urgency."
 msgstr ""
 
 #. Author of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "WPPoland"
 msgstr ""
 
 #. Author URI of the plugin
-#: proof.php
+#: plogins-proof.php
 msgid "https://plogins.com/"
 msgstr ""
 
-#: proof.php:48
+#: plogins-proof.php:48
 msgid "Proof - Sales Notifications for WooCommerce requires WooCommerce to be active."
 msgstr ""
 
