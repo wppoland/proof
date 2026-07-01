@@ -1,4 +1,4 @@
-=== Plogins Proof for WooCommerce ===
+=== Plogins Proof - Social Proof for WooCommerce ===
 Contributors: motylanogha
 Tags: woocommerce, social proof, sales notification, popup, fomo
 Requires at least: 6.5
